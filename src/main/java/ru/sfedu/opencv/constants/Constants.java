@@ -1,5 +1,9 @@
 package ru.sfedu.opencv.constants;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import org.opencv.imgproc.Imgproc;
+
 public class Constants {
     public static final String PATH_TO_NATIVE_LIB_LINUX = "cv.file.path";
 
@@ -10,6 +14,8 @@ public class Constants {
     public static final String LAB3_IMAGE_PATH = "lab3.image.path";
     public static final String LAB3_IMAGE2_PATH = "lab3.image2.path";
 
+    public static final String LAB4_OUTPUT_PATH = "lab4.output.path";
+    public static final String LAB4_IMAGE_PATH = "lab4.image.path";
 
     public static final String LAB5_OUTPUT_PATH = "lab5.output.path";
     public static final String LAB5_IMAGE_TO_FLOOD_PATH = "lab5.image-to-flood.path";
@@ -22,5 +28,16 @@ public class Constants {
 
     public enum OSType {
         MACOS, WINDOWS, LINUX, OTHER
+    }
+
+    @Getter
+    @RequiredArgsConstructor
+    public enum MORPH {
+        CROSS(Imgproc.MORPH_CROSS),
+        RECT(Imgproc.MORPH_RECT),
+        ELLIPSE(Imgproc.MORPH_ELLIPSE),
+        ;
+
+        private final int shape;
     }
 }
